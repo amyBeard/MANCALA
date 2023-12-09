@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>TextUI.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">gp3</a> &gt; <a href="index.source.html" class="el_package">ui</a> &gt; <span class="el_source">TextUI.java</span></div><h1>TextUI.java</h1><pre class="source lang-java linenums">package ui;
+import mancala.MancalaGame;
+import mancala.Board;
+import mancala.Player;
+import java.util.Scanner;
+import mancala.InvalidMoveException;
+import mancala.GameNotOverException;
+
+/*
+import mancala.NoSuchPlayerException;
+import mancala.GameNotOverException;
+import mancala.PitNotFoundException;
+
+ */
+
+
+public class TextUI{
+<span class="nc" id="L18">    private MancalaGame game = new MancalaGame();</span>
+    private Scanner userIn;
+    private Board board;
+    private Player player1;
+    private Player player2;
+
+
+<span class="nc" id="L25">    public TextUI(){</span>
+    
+<span class="nc" id="L27">        userIn = new Scanner(System.in);</span>
+<span class="nc" id="L28">        this.setUp();</span>
+<span class="nc" id="L29">        System.out.println(game.toString());</span>
+        
+<span class="nc" id="L31">        System.out.print(&quot;\n&quot; + game.getCurrentPlayer() + &quot; Turn. Enter Pit Number: &quot;);</span>
+        try{
+<span class="nc" id="L33">            game.move(userIn.nextInt());</span>
+<span class="nc" id="L34">        }catch (InvalidMoveException e) {</span>
+<span class="nc" id="L35">            System.err.println(e.getMessage());</span>
+<span class="nc" id="L36">        }</span>
+
+<span class="nc bnc" id="L38" title="All 2 branches missed.">        while (!game.isGameOver()){</span>
+            
+<span class="nc" id="L40">            System.out.println(game.toString());</span>
+        
+<span class="nc" id="L42">            System.out.print(&quot;\n&quot; + game.getCurrentPlayer() + &quot; Turn. Enter Pit Number: &quot;);</span>
+            try{
+<span class="nc" id="L44">                game.move(userIn.nextInt());</span>
+<span class="nc" id="L45">            }catch (InvalidMoveException e) {</span>
+<span class="nc" id="L46">                System.err.println(e.getMessage());</span>
+<span class="nc" id="L47">            }</span>
+            
+        }
+
+        try{
+<span class="nc bnc" id="L52" title="All 2 branches missed.">            if (game.getWinner()!=null){</span>
+<span class="nc" id="L53">            System.out.println(&quot;Winner: &quot; + game.getWinner());</span>
+            }else{
+<span class="nc" id="L55">                System.out.println(&quot;Tie&quot;);</span>
+            }
+<span class="nc" id="L57">        }catch (GameNotOverException e) {</span>
+<span class="nc" id="L58">            System.err.println(e.getMessage());</span>
+<span class="nc" id="L59">        }</span>
+        
+
+<span class="nc" id="L62">    }</span>
+
+    public void setUp() {
+<span class="nc" id="L65">        board = new Board();</span>
+<span class="nc" id="L66">        game.setBoard(board);</span>
+<span class="nc" id="L67">        player1 = new Player(&quot;Player1&quot;);</span>
+<span class="nc" id="L68">        player2 = new Player(&quot;Player2&quot;);</span>
+<span class="nc" id="L69">        game.setPlayers(player1, player2);</span>
+<span class="nc" id="L70">        game.setCurrentPlayer(player1);</span>
+<span class="nc" id="L71">    }</span>
+
+    public static void main(String[] args){
+        //set up instance of TextUI to run helper methods
+<span class="nc" id="L75">        TextUI text = new TextUI();</span>
+
+<span class="nc" id="L77">    }</span>
+    
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>
