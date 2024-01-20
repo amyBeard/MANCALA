@@ -1,9 +1,8 @@
 # ASSIGNMENT 3-- Mancala
 ## Description
-
-
-
-## Getting Started
+This is a Java-based program, simulating the board game Mancala, utilizing OOP principles.
+To use the GUI version, download the jar file and follow the appropriate step in the Executing program section.
+To use the TextUI version, follow the Executing program section. (Make sure you have to correct dependecies, including the CIS*2430 Docker Container)
 
 ### Dependencies
 
