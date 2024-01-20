@@ -22,7 +22,7 @@
 2. enter GP4 directory
 3. type ```gradle build``` to build program
 4. type ```java -cp build/classes/java/main ui.TextUI``` to run text-based program
-5. in a non-docker shell type ```java -jar build/libs/MancalaUI.jar``` to run GUI
+5. in a non-docker shell type ```java -jar 'pwd'/MancalaUI.jar``` to run GUI
 
 * Expected output:
 
